@@ -19,6 +19,16 @@ export default async function* ({ wp }) {
     yield { ...page, layout: "category.njk" };
   }
 
+  // api_path: /wp/v2/chapters
+  for await (const page of wp.collection("chapter")) {
+    yield { ...page, layout: "chapter.njk" };
+  }
+
+  // api_path: /wp/v2/newsletters
+  for await (const page of wp.collection("newsletter")) {
+    yield { ...page, layout: "newsletter.njk" };
+  }
+
   // api_path: /wp/v2/pages
   for await (const page of wp.collection("page")) {
     if (page.url === "/") continue; // Skip the home page (it's already generated)

@@ -36,3 +36,11 @@ layout: base.njk
   <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.title }}</a></li>
   {% endfor %}
 </ul>
+
+
+<h2>Chapter</h2>
+<ul>
+  {% for item in search.pages("type=chapter", "id") %}
+  <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.title }}</a></li>
+  {% endfor %}
+</ul>

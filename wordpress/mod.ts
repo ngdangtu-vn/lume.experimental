@@ -153,35 +153,18 @@ export class WordPressAPI {
     name: string,
     limit: number = this.#limit,
   ): AsyncGenerator<Partial<PageData>> {
-<<<<<<< HEAD
     const filterList: Transformer[] = [
       requirementFilter,
       presetTransform[name] || this.#customTransformer["*"],
       this.#customTransformer[name]
-=======
-    const customTransformer = this.#customTransformer[name] || this.#customTransformer["*"]
-    const filterList: Transformer[] = [
-      requirementFilter,
-      presetTransform[name],
-      customTransformer
->>>>>>> fd2abf8 (update wordpress plugin)
     ]
 
     const response = this.#fetchAll<WP_REST_API>(this.#collections[name], limit)
     for await (const raw of response) {
-<<<<<<< HEAD
       yield filterList.reduce(
         (data, transform) => typeof transform === 'function' ? transform(data, raw) : data,
         { type: name } as Partial<PageData>
       )
-=======
-      const x = filterList.reduce(
-        (data, transform) => typeof transform === 'function' ? transform(data, raw) : data,
-        { type: name } as Partial<PageData>
-      )
-      // console.log(x)
-      yield x
->>>>>>> fd2abf8 (update wordpress plugin)
     }
   }
 
