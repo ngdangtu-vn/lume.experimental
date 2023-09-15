@@ -8,6 +8,14 @@ site.use(relations({ foreignKeys: { ...presetRelation } }));
 site.use(wordpress({
   baseUrl: "https://blog.oscarotero.com",
   limit: 100,
+  collections: {
+    '/users': 'user',
+    '/posts': 'post',
+    '/pages': 'page',
+    '/tags': 'tag',
+    '/categories': 'category',
+    '/media': 'media',
+  },
 }));
 
 export default site;
