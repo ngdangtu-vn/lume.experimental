@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<article>
+  <header>
+    <h1>{{ name }}</h1>
+  </header>
+
+  {% if movies.length %}
+    <h2>Movies with the genre {{ name }}</h2>
+
+    <ul>
+    {% for movie in movies %}
+      <li><a href="{{ movie.url }}">{{ movie.title }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</article>

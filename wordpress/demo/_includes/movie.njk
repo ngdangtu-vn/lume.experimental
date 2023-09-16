@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+    
+    {% if imdb_id %}
+      <a href="https://www.imdb.com/title/{{ imdb_id }}">IMDb</a>
+    {% endif %}
+
+    {% if genres.length %}
+      Genres:
+      {% for genre in genres %}
+        <a href="{{ genre.url }}">{{ genre.name }}</a>
+      {% endfor %}
+    {% endif %}
+  </header>
+
+  {{ excerpt | safe }}
+</article>

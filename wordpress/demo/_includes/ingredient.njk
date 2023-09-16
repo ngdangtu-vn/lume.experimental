@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<article>
+  <header>
+    <h1>{{ name }}</h1>
+  </header>
+
+  {% if recipes.length %}
+    <h2>Recipes uses the ingredient {{ name }}</h2>
+
+    <ul>
+    {% for recipe in recipes %}
+      <li><a href="{{ recipe.url }}">{{ recipe.title }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+</article>

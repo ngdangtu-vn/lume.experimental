@@ -4,7 +4,8 @@ layout: base.njk
 <article>
   <header>
     <h1>{{ title }}</h1>
-{{ author_id }}
+    <h2>{{ modified_by_hook }}</h2>
+
     {% if author %}
     By: <a href="{{ author.url }}">{{ author.name }}</a>
     {% endif %}

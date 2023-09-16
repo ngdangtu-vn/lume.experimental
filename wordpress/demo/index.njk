@@ -36,3 +36,31 @@ layout: base.njk
   <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.title }}</a></li>
   {% endfor %}
 </ul>
+
+<h2>Movies</h2>
+<ul>
+  {% for item in search.pages("type=movie", "id") %}
+  <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Genres</h2>
+<ul>
+  {% for item in search.pages("type=genre", "id") %}
+  <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Cooking Recipes</h2>
+<ul>
+  {% for item in search.pages("type=recipe", "id") %}
+  <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.title }}</a></li>
+  {% endfor %}
+</ul>
+
+<h2>Ingredients</h2>
+<ul>
+  {% for item in search.pages("type=ingredient", "id") %}
+  <li><a href="{{ item.data.url }}">{{ item.data.id }} - {{ item.data.name }}</a></li>
+  {% endfor %}
+</ul>

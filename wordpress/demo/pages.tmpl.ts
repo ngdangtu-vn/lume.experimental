@@ -24,4 +24,24 @@ export default async function* ({ wp }) {
     if (page.url === "/") continue; // Skip the home page (it's already generated)
     yield { ...page, layout: "page.njk" };
   }
+
+  // api_path: /wp/v2/movies
+  for await (const page of wp.collection("movie")) {
+    yield { ...page, layout: "movie.njk" };
+  }
+
+  // api_path: /wp/v2/genres
+  for await (const page of wp.collection("genre")) {
+    yield { ...page, layout: "genre.njk" };
+  }
+
+  // api_path: /wp/v2/cooking-recipes
+  for await (const page of wp.collection("recipe")) {
+    yield { ...page, layout: "recipe.njk" };
+  }
+
+  // api_path: /wp/v2/ingredients
+  for await (const page of wp.collection("ingredient")) {
+    yield { ...page, layout: "ingredient.njk" };
+  }
 }
